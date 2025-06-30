@@ -14,7 +14,7 @@ class calculator(TypedDict):
     cal_sub : int
     cal_mul : int
     cal_div : int
-    input : str
+    input : str 
 
 
 def process_inpute(state: calculator) -> calculator:
@@ -46,6 +46,9 @@ graph = workflow.compile()
 
 logger.info("Starting workflow execution")
 graph.invoke({"input": "add"})  # or "sub", "mul", "div"
+graph.invoke({"input": "sub"})  # or "sub", "mul", "div"
+graph.invoke({"input": "mul"})  # or "sub", "mul", "div"
+graph.invoke({"input": "div"})  # or "sub", "mul", "div"
 logger.info("Workflow execution completed")
 
 
