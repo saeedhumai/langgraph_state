@@ -9,7 +9,7 @@ from langgraph.graph import StateGraph , START , END
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class StatA(TypedDict):
+class calculator(TypedDict):
     cal_add : int
     cal_sub : int
     cal_mul : int
@@ -17,7 +17,7 @@ class StatA(TypedDict):
     input : str
 
 
-def process_inpute(state: StatA) -> StatA:
+def process_inpute(state: calculator) -> calculator:
     value = state["input"]
     if value == "add":
         x = input (f"enter the first number : ")
@@ -37,7 +37,7 @@ def process_inpute(state: StatA) -> StatA:
 
 
 
-workflow = StateGraph(StatA)
+workflow = StateGraph(calculator)
 workflow.add_node("process_inpute", process_inpute)
 workflow.add_edge(START, "process_inpute")
 workflow.add_edge("process_inpute", END)
